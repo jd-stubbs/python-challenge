@@ -13,7 +13,7 @@ candidates = []
 votes = []
 
 #set file path to election_data.csv
-file = 'election_data.csv'
+file = '../../Resources/election_data.csv'
 
 #Open and read data from csv
 with open(file, 'r') as data:
@@ -34,10 +34,11 @@ with open(file, 'r') as data:
 #calculate the percent of the total votes each candidate received
 percent = [round((x / total_votes) * 100, 3) for x in votes]
 
-#combine and sort the candidatess, their vote count and percentage from most votes to least
+#combine the candidates, their percent of the votes, and vote count
+#sort the results, most votes to least
 results = sorted(zip(candidates, percent, votes), key=lambda x: x[2], reverse=True)
 
-#prepare report
+#format report
 sep = "-------------------------"
 analysis = []
 analysis.append("Election Results")
@@ -50,7 +51,7 @@ analysis.append(sep)
 analysis.append("Winner: " + results[0][0])
 analysis.append(sep)
 
-#output report to text file as well as the terminal
+#generate report
 output_file = 'voting_analysis.txt'
 with open(output_file, 'w') as report:
     for i in analysis:
