@@ -1,5 +1,6 @@
 """
 Author: Justin Stubbs
+@GitHub: jd-stubbs
 GW Data Analytics Boot Camp
 HW#3 Part 2 - Voting Analysis
 """
