@@ -42,7 +42,7 @@ with open(file, 'r') as data:
         net_total += int(i[1])
         
         #calculate monthly change in profits
-        change = prev - int(i[1])
+        change = int(i[1]) - prev
         
         #sum total change in profits for average calculation
         sum_change += change
@@ -69,10 +69,10 @@ analysis = []
 analysis.append("Financial Analysis")
 analysis.append("-----------------------------")
 analysis.append("Total Months: " + str(months))
-analysis.append("Total: $" + str(net_total))
-analysis.append("Average Change: $" + str(avg_change))
-analysis.append("Greatest Increase in Profits: " + inc['date'] + " ($" + str(inc['profit']) + ")")
-analysis.append("Greatest Decrease in Profits: " + dec['date'] + " ($" + str(dec['profit']) + ")")
+analysis.append("Total: $" + '{:,}'.format(net_total))
+analysis.append("Average Change: $" + '{:,.2f}'.format(avg_change))
+analysis.append("Greatest Increase in Profits: " + inc['date'] + " ($" + '{:,}'.format(inc['profit']) + ")")
+analysis.append("Greatest Decrease in Profits: " + dec['date'] + " ($" + '{:,}'.format(dec['profit']) + ")")
 
 #generate report
 output_file = 'financial_analysis.txt'
